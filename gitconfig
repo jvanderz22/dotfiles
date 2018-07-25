@@ -1,0 +1,22 @@
+[user]
+	name = Jordan VanderZwaag
+	email = vanderzwaagjordan@gmail.com
+[core]
+	editor = vim
+	excludesfile = /Users/jvanderzwaag/.gitignore_global
+[rerere]
+	enabled = true
+[alias]
+  ld = diff HEAD~1 HEAD
+  br = branch
+  co = checkout
+  st = status
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  brnach = branch
+  chcekout = checkout
+  chckeout = checkout
+  checkotu = checkout
+  lgo = log
+  p = push --set-upstream
+[push]
+	default = current
