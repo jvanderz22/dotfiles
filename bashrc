@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 HISTCONTROL=$HISTCONTROL${HISTCONTROL+:}ignoredups
@@ -49,21 +52,9 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
 fi
-
-if [ "$color_prompt" = yes ]; then
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1="${debian_chroot:+($debian_chroot)}[\t]\u@\h:\w\[\033[01;30m\]\$(__git_ps1)\[\033[00m\]\$ "
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -100,7 +91,45 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+alias be='bundle exec'
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+alias vi="vim"
+
 alias gru="git remote update --prune"
 alias gs="git status"
 alias gd="git diff --color"
 alias gdc="git diff --cached --color"
+alias go='git checkout '
+alias gc='git commit'
+alias ga='git add '
+alias gdm='git diff origin/master HEAD'
+
+alias got='git '
+
+alias aws-login='$(aws ecr get-login --no-include-email --region us-east-1)'
+
+alias dc='docker-compose'
+alias dcr='docker-compose -f docker-compose.yml -f docker-compose-runtime-core.yml -f docker-compose-runtime-sync.yml'
+alias docker-clean-dangling-images='docker rmi $(docker images -a --filter=dangling=true -q)'
+alias docker-clean-ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
+alias docker-clean-untagged='docker rm -f $(docker ps | grep "<none>" | awk "{print \$3}")'
+alias docker-clean-untagged-images='docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")'
+alias docker-clean-volumes='docker volume list | docker volume rm $(awk "{print \$2}")'
+
+alias dl='docker logs'
+alias follow-config-logs='docker logs config-dev --follow'
+alias follow-runtime-logs='docker logs runtime-dev --follow'
+alias dps='docker ps --format "{{.ID}} / {{.Status}} / {{.Names}}"'
+alias dla='docker ps --format "{{.ID}}" | xargs -I{} -n1 docker logs -f {}'
+
+alias agl='$(aws ecr get-login --no-include-email --region us-east-1)'
+
+alias reset="clear && printf '\e[3J'"
+alias notes="vim /Users/jvanderzwaag/notes.txt"
+
+export NVM_DIR="/Users/jvanderzwaag/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
