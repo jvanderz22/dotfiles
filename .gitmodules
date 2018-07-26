@@ -1,0 +1,27 @@
+[submodule "pathogen-libs/python-syntax"]
+	path = pathogen-libs/python-syntax
+	url = https://github.com/vim-python/python-syntax.git
+[submodule "pathogen-libs/vim-es6"]
+	path = pathogen-libs/vim-es6
+	url = https://github.com/isRuslan/vim-es6.git
+[submodule "pathogen-libs/vim-flow"]
+	path = pathogen-libs/vim-flow
+	url = https://github.com/flowtype/vim-flow.git
+[submodule "pathogen-libs/vim-javascript"]
+	path = pathogen-libs/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "pathogen-libs/vim-sensible"]
+	path = pathogen-libs/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
+[submodule "pathogen-libs/vim-surround"]
+	path = pathogen-libs/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "pathogen-libs/command-t"]
+	path = pathogen-libs/command-t
+	url = https://github.com/wincent/command-t.git
+[submodule "pathogen-libs/YouCompleteMe"]
+	path = pathogen-libs/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "pathogen-libs/ack.vim"]
+	path = pathogen-libs/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
