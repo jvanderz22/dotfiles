@@ -5,9 +5,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
-
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 HISTCONTROL=$HISTCONTROL${HISTCONTROL+:}ignoredups
