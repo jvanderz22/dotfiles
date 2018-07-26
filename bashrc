@@ -118,8 +118,6 @@ alias docker-clean-untagged-images='docker rmi -f $(docker images | grep "<none>
 alias docker-clean-volumes='docker volume list | docker volume rm $(awk "{print \$2}")'
 
 alias dl='docker logs'
-alias follow-config-logs='docker logs config-dev --follow'
-alias follow-runtime-logs='docker logs runtime-dev --follow'
 alias dps='docker ps --format "{{.ID}} / {{.Status}} / {{.Names}}"'
 alias dla='docker ps --format "{{.ID}}" | xargs -I{} -n1 docker logs -f {}'
 
@@ -127,6 +125,8 @@ alias agl='$(aws ecr get-login --no-include-email --region us-east-1)'
 
 alias reset="clear && printf '\e[3J'"
 alias notes="vim /Users/jvanderzwaag/notes.txt"
+
+source ~/.git-completion.bash
 
 export NVM_DIR="/Users/jvanderzwaag/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
