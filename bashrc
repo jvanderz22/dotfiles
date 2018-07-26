@@ -126,7 +126,5 @@ alias agl='$(aws ecr get-login --no-include-email --region us-east-1)'
 alias reset="clear && printf '\e[3J'"
 alias notes="vim /Users/jvanderzwaag/notes.txt"
 
-source ~/.git-completion.bash
-
 export NVM_DIR="/Users/jvanderzwaag/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
