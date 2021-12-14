@@ -12,6 +12,8 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
+# added by travis gem
+[ ! -s /Users/jordanvanderzwaag/.travis/travis.sh ] || source /Users/jordanvanderzwaag/.travis/travis.sh
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -38,7 +40,10 @@ export PATH=/usr/local/bin/:$PATH
 export PATH=/$HOME/bin/:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 PATH="$PYENV_ROOT/bin:$PATH"
+export PATH=/Users/jvanderzwaag/Library/Python/2.7/bin:$PATH
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+export PATH="/usr/local/opt/mongodb-community@3.2/bin:$PATH"
+export PATH="/Users/jordanvanderzwaag/.rvm/gems/ruby-2.7.2/bin:$PATH"
 
 autoload -Uz compinit && compinit
 
@@ -103,8 +108,11 @@ alias dla='docker ps --format "{{.ID}}" | xargs -I{} -n1 docker logs -f {}'
 
 alias agl='$(aws ecr get-login --no-include-email --region us-east-1)'
 
+alias show-ip="ipconfig getifaddr en0"
+
 alias vimfzf='vim -o `fzf`'
 alias reset="clear && printf '\e[3J'"
+alias notes="vim /Users/jvanderzwaag/notes.txt"
 function rack() {
     clear
     printf '\e[3J'
@@ -118,6 +126,8 @@ git-temp() {
     git branch -m "temp/$CURRENT"
 }
 
+export NVM_DIR="/Users/jvanderzwaag/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 export PYENV_VERSION="3.7.4"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
