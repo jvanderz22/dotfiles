@@ -24,7 +24,11 @@ colorscheme ron
 syntax on
 
 imap <C-Return> <CR><CR><C-o>k<Tab>
-filetype plugin indent on
+
+"Alternate color settings
+"set t_Co=256
+"set background=light
+"colorscheme PaperColor
 
 let g:pymode_rope_completion = 0
 let g:CommandTMaxFiles=20000
