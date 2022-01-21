@@ -1,0 +1,43 @@
+// Place your key bindings in this file to override the defaults
+[
+    { "key": "ctrl+`", "command": "workbench.action.terminal.focus"},
+    { "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"},
+    { "key": "cmd+w", "command": "workbench.action.terminal.kill", "when": "terminalFocus"},
+    { "key": "cmd+[ArrowDown]", "command": "workbench.action.terminal.focus"},
+    {
+        "key": "cmd+[ArrowUp]",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+end",
+        "command": "extension.vim_cmd+right",
+        "when": "editorTextFocus && vim.active && vim.use<D-right> && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
+        "key": "cmd+right",
+        "command": "-extension.vim_cmd+right",
+        "when": "editorTextFocus && vim.active && vim.use<D-right> && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
+        "key": "cmd+right",
+        "command": "workbench.action.focusRightGroup"
+    },
+    {
+        "key": "cmd+k cmd+right",
+        "command": "-workbench.action.focusRightGroup"
+    },
+    {
+        "key": "cmd+left",
+        "command": "-extension.vim_cmd+left",
+        "when": "editorTextFocus && vim.active && vim.use<D-left> && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
+        "key": "cmd+left",
+        "command": "workbench.action.focusLeftGroup"
+    },
+    {
+        "key": "cmd+k cmd+left",
+        "command": "-workbench.action.focusLeftGroup"
+    }
+]
